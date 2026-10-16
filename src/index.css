@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours taken from the Danam Holdings logo (brand.webp) */
+  --color-brand: #55aa22;
+  --color-brand-dark: #2d5911;
+  --color-leaf: #3e8a1a;
+  --color-deep: #102208;
+  --color-tint: #f1f7ec;
+  --color-ink: #1c211a;
+  --color-mut: #586357;
+  --color-line: #dfe6d8;
+  --font-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --shadow-lift: 0 18px 50px rgba(16, 34, 8, 0.16);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; @apply overflow-x-hidden max-w-full; }
+  body { @apply bg-white font-sans text-ink antialiased overflow-x-hidden max-w-full min-w-0; }
+  h1, h2, h3, h4 { @apply font-sans font-bold leading-tight tracking-tight; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-4 sm:px-6; }
+  .section { @apply py-8 sm:py-11 lg:py-12; }
+  .btn { @apply inline-flex items-center justify-center gap-2 cursor-pointer rounded-full px-5 py-3 text-center text-[11px] font-bold uppercase tracking-[0.1em] transition-all duration-300 sm:px-6 sm:py-3.5 sm:text-xs sm:tracking-[0.12em] shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0; }
+  .btn-green { @apply border border-brand-dark bg-brand-dark text-white hover:border-deep hover:bg-deep hover:shadow-lg; }
+  .btn-bright { @apply border border-emerald-600/30 bg-gradient-to-r from-emerald-600 to-green-700 text-white shadow-lg shadow-black/25 hover:from-emerald-500 hover:to-green-600 hover:shadow-xl hover:shadow-black/35; }
+  .btn-ghost { @apply border border-white/40 bg-white/10 text-white backdrop-blur-md shadow-sm hover:bg-white hover:text-deep hover:border-white hover:shadow-lg; }
+  .btn-line { @apply border border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white; }
+}
+
+@keyframes client-shimmer {
+  0% { transform: translateX(-200%) skewX(-20deg); }
+  25%, 100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.animate-client-shimmer {
+  animation: client-shimmer 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes btn-shimmer {
+  0% { transform: translateX(-160%) skewX(-20deg); }
+  35%, 100% { transform: translateX(260%) skewX(-20deg); }
+}
+
+.animate-btn-shimmer {
+  animation: btn-shimmer 3s infinite ease-in-out;
+}
